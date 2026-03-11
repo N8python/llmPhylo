@@ -1,0 +1,64 @@
+character,kind,description,states
+modality,multistate,Primary model modality coverage.,text|vision+text|audio+vision+text
+stack_topology,multistate,"High-level arrangement of transformer, state-space, or recurrent blocks.",ssm_only|transformer|recurrent_rwkv|hybrid_attention_ssm|hybrid_attention_linear|hybrid_recurrent_attention
+state_update_rule,multistate,Underlying recurrent/state-space update kernel used when the architecture is not pure dense attention.,none|rg_lru|gla_decay|gated_delta|selective_ssm|wkv_recurrence
+attention_family,multistate,Core token mixing mechanism used for contextualization.,mla|ssm|sdpa|custom|sdpa_plus_ssm|rwkv7_state_mixing|mla_plus_gated_delta|sdpa_plus_gated_delta|sdpa_plus_linear_attention
+attention_projection,multistate,How Q/K/V or latent state projections are parameterized.,custom|fused_qkv|fused_qkvkv|state_space|separate_q_k_v|lora_factored_q_or_kv
+projection_bias_scheme,multistate,Bias-usage regime across the architecture's main attention/FFN/expert linear projections.,none|full_linear|mixed_custom|attention_only
+q_lora_present,binary,Whether the architecture uses Q-side low-rank LoRA-style attention factorization.,0|1
+kv_lora_present,binary,Whether the architecture uses K/V-side low-rank LoRA-style attention factorization.,0|1
+kv_layout,multistate,Key/value head-sharing layout or latent cache organization.,gqa|mha|mqa|state_cache|latent_kv_mla|kv_head_parameterized
+cross_layer_kv_sharing,multistate,Whether later layers reuse key/value states projected in other layers.,none|reuse_tail_layers|terminal_shared_layers|stride_shared_projection
+attention_pattern,multistate,Context-window or hybrid-attention scheduling pattern.,full_causal|recurrent_ssm|ngram_memory_hybrid|attention_and_ssm_masks|chunked_attention_cache|full_attention_and_linear_state|mixed_global_plus_sliding_window|periodic_global_plus_sliding_window|alternating_local_attention_and_recurrence
+hybrid_block_schedule,multistate,How heterogeneous mixer block types are arranged across depth.,none|same_block_parallel|sparse_injected_layers|alternating_layer_types|periodic_global_insertion
+window_schedule_detail,multistate,Finer structure of sliding/local/global attention scheduling when present.,none|fixed_sliding|head_split_swa|alternating_local_global
+secondary_token_mixer,multistate,Whether some layers replace attention with a secondary non-attention token mixer.,none|short_depthwise_conv
+attention_output_gating,multistate,Whether the attention or linear-attention output is multiplicatively gated after mixing.,none|post_attention_gate
+positional_encoding,multistate,Primary positional encoding family.,none|rope|yarn_rope|partial_rope|dual_base_rope|su_scaled_rope|dynamic_ntk_rope|learned_absolute|decoupled_rope_split
+windowed_rope_scope,multistate,How RoPE is scoped across local/global attention layers in windowed architectures.,local_only|uniform_all_layers|local_global_dual_base
+rope_partition_detail,multistate,"Detailed way RoPE is partitioned, split, or disabled across subspaces or layers.",none|mrope_sections|rope_nope_split|rope_free_dense_layers|manual_rope_score_split
+rope_parameterization,multistate,Whether RoPE behavior is controlled by direct scaling or a rope_parameters object.,none|rope_scaling|rope_parameters
+qk_norm,multistate,Normalization applied to Q/K (and optionally V) inside attention.,none|rmsnorm_qk|layernorm_qk|qk_plus_v_norm
+qk_norm_detail,multistate,More specific Q/K/V normalization variant when the coarse qk_norm class is insufficient.,none|rmsnorm_qk|layernorm_qk|qk_plus_v_norm|per_head_layernorm_qk
+norm_scheme,multistate,Primary normalization family used in blocks.,custom|rmsnorm|layernorm|custom_rmsnorm|mixed_rms_layernorm
+block_norm_variant,multistate,Specific normalization variant used at block boundaries beyond the broad RMSNorm/LayerNorm family.,layernorm_1p|standard_rmsnorm|standard_layernorm|gemma_rmsnorm_1plus|affine_free_layernorm|zero_centered_rmsnorm
+residual_scheme,multistate,Residual scheduling around attention and feedforward blocks.,custom|parallel_residual|prenorm_sequential|sandwich_or_multi_norm
+residual_update_rule,multistate,"Whether residual updates are plain, scaled, or clipped on addition.",plain_add|scaled_add|clipped_add
+ffn_core,multistate,Base feedforward block family after removing MoE dispatch details.,dense|custom|state_space_gated
+ffn_projection_style,multistate,How the feedforward or expert cell projects and gates its hidden states.,ungated_two_proj|fused_split_hidden|gated_two_proj_fused|gated_three_proj_separate
+ffn_activation_core,multistate,Primary nonlinearity used in the feedforward pathway.,gelu|silu|custom|gegelu|swiglu|relu2_glu|gelu_approx
+has_aux_silu_gate,binary,Whether a secondary SiLU-like gate appears alongside the core FFN activation.,0|1
+has_aux_relu2_gate,binary,Whether a secondary ReLU2-style gate appears alongside the core FFN activation.,0|1
+has_moe,binary,Whether the architecture includes routed experts.,0|1
+moe_distribution,multistate,Whether MoE appears in all layers or only selected layers.,none|all_layers|interleaved_or_periodic
+moe_schedule_type,multistate,Layer scheduling motif that determines where MoE blocks appear.,none|all_layers|explicit_layer_list|periodic_with_exclusions|dense_prefix_then_periodic
+moe_subtype,multistate,Subtype of MoE block beyond simple presence and layer distribution.,none|custom|switch_mlp|standard_topk|periodic_sparse
+router_activation,multistate,Router score transformation before top-k expert selection.,none|topk_custom|sigmoid_topk|softmax_topk
+router_activation_configurable,binary,Whether the router activation family is exposed as a configurable architecture choice.,0|1
+has_shared_expert,binary,Whether routed MoE is supplemented with shared dense experts.,0|1
+shared_branch_merge_mode,multistate,"How a shared dense branch, when present, is combined with routed expert output.",none|additive|sigmoid_gated_shared|learned_coefficient_mix
+shared_expert_configurable,binary,Whether the presence of shared experts is itself configurable.,0|1
+expert_bias_correction,binary,Whether router bias correction is part of expert selection.,0|1
+zero_expert_option,binary,Whether a zero/identity expert option is part of routing.,0|1
+tie_embeddings_default,multistate,Default input/output embedding tying state.,tied|untied
+tie_embeddings_configurable,binary,Whether embedding tying is an exposed architecture knob.,0|1
+output_head_connection,multistate,How logits connect to embeddings or output head weights.,tied|custom|untied_linear
+lm_head_bias,binary,Whether the LM head includes an explicit bias term.,0|1
+uses_logit_scale,binary,Whether logits are globally scaled after projection.,0|1
+uses_logit_softcap,binary,Whether logits are softcapped after projection.,0|1
+bitlinear_weights,binary,Uses BitLinear-style low-bit parameterization in the main stack.,0|1
+chunked_kv_cache,binary,Uses chunked KV caching as an architectural feature.,0|1
+laurel,binary,Includes Laurel-style corrective blocks.,0|1
+altup,binary,Includes alternating update correction blocks.,0|1
+conv_on_kv,binary,Applies short convolution to K/V states.,0|1
+periodic_no_rope_layers,binary,Contains layers that intentionally disable RoPE on a schedule.,0|1
+rglru_recurrence,binary,Uses Griffin-style RGLRU recurrence.,0|1
+gated_delta_net,binary,Includes a Gated Delta Net style linear-attention block.,0|1
+ngram_memory,binary,Adds explicit n-gram memory augmentation.,0|1
+same_block_attention_ssm,binary,Combines attention and state-space mixing inside the same block.,0|1
+dual_attention_modules,binary,Includes two distinct attention modules in the same architecture family.,0|1
+kv_reuse_attention,binary,Reuses cached KV structure beyond standard causal attention.,0|1
+coefficient_mix_shared_routed,binary,Learns a coefficient mix between shared and routed expert outputs.,0|1
+global_plus_linear_attention_mix,binary,Mixes global attention with recurrent linear attention layers.,0|1
+grouped_expert_selection,binary,Uses grouped expert selection rather than flat top-k alone.,0|1
+optional_nope,binary,Can disable RoPE in favor of NoPE-style positional handling.,0|1
