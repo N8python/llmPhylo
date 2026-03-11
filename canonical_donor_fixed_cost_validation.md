@@ -2,59 +2,59 @@
 
 - Input matrix: /Users/natebreslow/Documents/llmPhylogeny/canonical_features.csv
 - Costs: donor=2.00, borrow=0.10, innovation=1.00
-- Full-data exact score: 1099.70
-- Full-data donor edges: 154
-- Full-data mean donors per taxon: 1.64
-- Full-data borrowed traits: 4767
-- Full-data innovations: 315
+- Full-data exact score: 1100.10
+- Full-data donor edges: 156
+- Full-data mean donors per taxon: 1.66
+- Full-data borrowed traits: 4771
+- Full-data innovations: 311
 - Held-out evaluation: 5-fold trait-column CV
-- Held-out cost per applicable trait: 0.2031
-- Held-out donor coverage: 88.55%
-- Held-out fold spread: min 0.1530, median 0.2098, max 0.2358
+- Held-out cost per applicable trait: 0.2045
+- Held-out donor coverage: 88.39%
+- Held-out fold spread: min 0.1477, median 0.2142, max 0.2368
 - Stability evaluation: 20 feature-subsample refits at 80% of trait columns
-- Mean primary-donor agreement with full fit: 55.65%
-- Stability spread: min 45.16%, median 55.38%, max 64.52%
+- Mean primary-donor agreement with full fit: 58.60%
+- Stability spread: min 46.24%, median 59.14%, max 70.97%
 - Consensus parents chosen: 93 / 94 taxa
-- Consensus-parent support: mean 65.65%, median 65.00%
-- Majority-backed consensus edges (>=50% of replicates): 68
-- Strong consensus edges (>=75% of replicates): 40
-- Consensus differs from full primary donor: 28 taxa
-- Consensus parent absent from full donor solution: 19 taxa
+- Consensus-parent support: mean 64.62%, median 65.00%
+- Majority-backed consensus edges (>=50% of replicates): 65
+- Strong consensus edges (>=75% of replicates): 35
+- Consensus differs from full primary donor: 19 taxa
+- Consensus parent absent from full donor solution: 10 taxa
 
 ## Holdout Folds
 
-- Fold 1: held-out cost 0.1530, coverage 94.11%, traits 1018
-- Fold 2: held-out cost 0.2098, coverage 87.80%, traits 1098
-- Fold 3: held-out cost 0.2358, coverage 84.91%, traits 974
-- Fold 4: held-out cost 0.2077, coverage 88.03%, traits 944
-- Fold 5: held-out cost 0.2099, coverage 87.79%, traits 1048
+- Fold 1: held-out cost 0.1477, coverage 94.70%, traits 1018
+- Fold 2: held-out cost 0.2090, coverage 87.89%, traits 1098
+- Fold 3: held-out cost 0.2368, coverage 84.80%, traits 974
+- Fold 4: held-out cost 0.2163, coverage 87.08%, traits 944
+- Fold 5: held-out cost 0.2142, coverage 87.31%, traits 1048
 
 ## Strongest Consensus Parents
 
 - afm7: openelm with support 100.00% (full primary openelm)
 - bailing_moe_linear: bailing_moe with support 100.00% (full primary bailing_moe)
+- deepseek: mixtral with support 100.00% (full primary mixtral)
 - deepseek_v2: deepseek with support 100.00% (full primary deepseek)
 - deepseek_v3: deepseek_v2 with support 100.00% (full primary deepseek_v2)
-- glm: gpt2 with support 100.00% (full primary gpt2)
+- deepseek_v32: deepseek_v3 with support 100.00% (full primary deepseek_v3)
 - glm4_moe_lite: deepseek_v3 with support 100.00% (full primary deepseek_v3)
 - gpt_bigcode: gpt2 with support 100.00% (full primary gpt2)
 - gpt_neox: gpt2 with support 100.00% (full primary gpt2)
 - granitemoe: mixtral with support 100.00% (full primary mixtral)
-- llama: glm with support 100.00% (full primary glm)
 - mamba2: mamba with support 100.00% (full primary mamba)
 - minicpm3: deepseek_v2 with support 100.00% (full primary deepseek_v2)
 
 ## Most Ambiguous Consensus Parents
 
-- lille-130m: nemotron-nas with support 15.00%, votes nemotron-nas:3;afm7:2;glm:2;helium:2;olmo:2;qwen:2;exaone:1;falcon_h1:1;hunyuan:1;mamba:1;phimoe:1;plamo:1;plamo2:1
-- minicpm: llama with support 20.00%, votes deepseek:4;internlm2:4;llama:4;mixtral:4;nemotron:3;glm:1
-- baichuan_m1: internlm2 with support 25.00%, votes internlm2:5;minicpm:4;cohere2:3;helium:2;qwen2_moe:2;mamba:1;mixtral:1;rwkv7:1;starcoder2:1
-- nemotron-nas: exaone with support 25.00%, votes exaone:5;mixtral:4;mamba2:3;bitnet:1;deepseek:1;granite:1;llama:1;olmoe:1;phi:1;phi3:1;qwen:1
-- Klear: dots1 with support 30.00%, votes dots1:6;minimax:5;qwen3_moe:4;glm4_moe:2;llama4:2;nemotron_h:1
-- cohere: phi with support 30.00%, votes phi:6;llama:4;stablelm:4;bitnet:2;gemma:1;gpt2:1;mixtral:1;plamo:1
-- gemma3_text: olmo2 with support 30.00%, votes olmo2:6;cohere2:5;gemma2:5;bailing_moe:4
-- hunyuan_v1_dense: internlm3 with support 30.00%, votes internlm3:6;qwen3:6;dots1:3;hunyuan:2;minimax:1;olmo2:1;qwen3_moe:1
-- gemma: glm with support 35.00%, votes glm:7;stablelm:5;gpt2:2;gpt_bigcode:2;plamo:2;deepseek:1;llama:1
-- gemma3n: gemma3_text with support 35.00%, votes gemma3_text:7;gemma2:5;llama:5;llama4_text:2;bitnet:1
-- hunyuan: qwen2_moe with support 35.00%, votes qwen2_moe:7;dots1:5;mixtral:3;afm7:1;bailing_moe:1;bailing_moe_linear:1;granitemoe:1;openelm:1
-- internlm2: plamo with support 35.00%, votes plamo:7;mixtral:5;nemotron:5;llama:2;mamba:1
+- glm: bitnet with support 20.00%, votes bitnet:4;mamba:3;phi3:3;phi3small:3;jamba:2;llama:2;gemma:1;minicpm:1;olmo:1
+- nemotron-nas: mixtral with support 20.00%, votes deepseek:4;exaone:4;mixtral:4;granite:1;granitemoe:1;llama:1;mamba2:1;minicpm:1;phi:1;phi3:1;qwen:1
+- lille-130m: olmo with support 25.00%, votes olmo:5;nemotron-nas:3;plamo2:3;afm7:2;glm:2;helium:2;openelm:1;phi3:1;phimoe:1
+- minimax: dots1 with support 25.00%, votes Klear:5;dots1:5;bailing_moe_linear:2;glm4_moe:2;mixtral:2;bailing_moe:1;dbrx:1;granitemoe:1;openelm:1
+- seed_oss: qwen2 with support 25.00%, votes minicpm:5;qwen2:5;granite:2;bitnet:1;ernie4_5:1;exaone:1;granitemoe:1;hunyuan_v1_dense:1;internlm3:1;olmo2:1;qwen3:1
+- apertus: glm4_moe with support 30.00%, votes glm4_moe:6;smollm3:3;nemotron:2;olmo2:2;openelm:2;olmo:1;olmoe:1;phi:1;qwen3:1;qwen3_moe:1
+- gemma3_text: cohere2 with support 30.00%, votes cohere2:6;olmo2:6;bailing_moe:3;gemma2:3;olmoe:1;recurrent_gemma:1
+- minicpm: deepseek with support 30.00%, votes deepseek:6;llama:3;mixtral:3;nemotron:3;stablelm:3;internlm2:2
+- afmoe: dots1 with support 35.00%, votes dots1:7;bailing_moe_linear:4;gpt_oss:4;exaone4:1;glm4_moe:1;mixtral:1;phimoe:1;qwen3_next:1
+- cohere: phi with support 35.00%, votes phi:7;llama:5;gemma:3;stablelm:3;deepseek:1;gpt2:1
+- gemma: stablelm with support 35.00%, votes stablelm:7;gpt2:6;gpt_bigcode:3;llama:2;plamo:2
+- hunyuan_v1_dense: qwen3 with support 35.00%, votes internlm3:7;qwen3:7;hunyuan:3;dots1:1;olmo2:1;olmoe:1

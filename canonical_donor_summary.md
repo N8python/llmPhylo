@@ -11,15 +11,15 @@
 - Secondary donor activation cost: 2.00 per donor taxon
 - Borrowed trait cost: 0.10 per trait
 - Innovation cost: 1.00 per trait
-- Total score: 1099.70
-- Greedy baseline total score: 1109.20
-- Improvement vs greedy: 9.50 (0.86%)
+- Total score: 1100.10
+- Greedy baseline total score: 1108.90
+- Improvement vs greedy: 8.80 (0.79%)
 - Taxa improved vs greedy: 10
-- Donor edges used: 154
-- Borrowed traits explained: 4767
-- Innovations required: 315
+- Donor edges used: 156
+- Borrowed traits explained: 4771
+- Innovations required: 311
 - Taxa with no donor selected: 1
-- Release-date precision mix: exact_day=93, month_midpoint=1
+- Release-date precision mix: exact_day=94
 
 ## Applicability Filters
 
@@ -30,39 +30,39 @@
 
 ## Top Donors
 
-- llama: donor to 14 taxa, 391 borrowed traits
-- phi: donor to 7 taxa, 144 borrowed traits
-- qwen: donor to 7 taxa, 171 borrowed traits
-- mixtral: donor to 7 taxa, 242 borrowed traits
-- olmoe: donor to 6 taxa, 213 borrowed traits
-- deepseek_v3: donor to 6 taxa, 219 borrowed traits
-- gpt_oss: donor to 5 taxa, 122 borrowed traits
-- gpt2: donor to 4 taxa, 176 borrowed traits
-- glm: donor to 4 taxa, 145 borrowed traits
-- gpt_neox: donor to 4 taxa, 162 borrowed traits
-- minicpm: donor to 4 taxa, 151 borrowed traits
-- phixtral: donor to 4 taxa, 75 borrowed traits
+- llama: donor to 15 taxa, 440 borrowed traits
+- qwen: donor to 7 taxa, 172 borrowed traits
+- mixtral: donor to 6 taxa, 210 borrowed traits
+- deepseek: donor to 6 taxa, 165 borrowed traits
+- olmoe: donor to 6 taxa, 194 borrowed traits
+- deepseek_v3: donor to 6 taxa, 209 borrowed traits
+- gpt2: donor to 5 taxa, 200 borrowed traits
+- gpt_neox: donor to 5 taxa, 123 borrowed traits
+- dots1: donor to 5 taxa, 188 borrowed traits
+- qwen2_moe: donor to 4 taxa, 95 borrowed traits
+- nemotron_h: donor to 4 taxa, 95 borrowed traits
+- gpt_oss: donor to 4 taxa, 81 borrowed traits
 
 ## Borrow-Heavy Taxa
 
-- dots1: donors deepseek(35), minimax(28), innovations none, score 10.30
-- exaone_moe: donors afmoe(36), ministral3(27), innovations none, score 10.30
-- Klear: donors dots1(33), nemotron_h(28), innovations shared_branch_merge_mode, coefficient_mix_shared_routed, score 12.10
-- mimo_v2_flash: donors glm4_moe(37), gpt_oss(24), innovations rope_parameterization, score 11.10
-- ernie4_5_moe: donors olmoe(41), nemotron_h(20), innovations none, score 10.10
+- dots1: donors bailing_moe(34), granitemoe(29), innovations none, score 10.30
+- exaone_moe: donors afmoe(35), ministral3(28), innovations none, score 10.30
+- Klear: donors nemotron_h(31), dots1(30), innovations shared_branch_merge_mode, coefficient_mix_shared_routed, score 12.10
+- mimo_v2_flash: donors glm4_moe(31), gpt_oss(30), innovations rope_parameterization, score 11.10
+- ernie4_5_moe: donors olmoe(32), nemotron_h(29), innovations none, score 10.10
+- minimax: donors dots1(31), phixtral(30), innovations none, score 10.10
 - glm4_moe_lite: donors deepseek_v3(61), innovations tie_embeddings_configurable, score 9.10
-- qwen3_next: donors bailing_moe_linear(49), nemotron_h(6), qwen2_moe(5), innovations state_update_rule, attention_family, gated_delta_net, score 15.00
-- hunyuan: donors bailing_moe(36), dbrx(24), innovations attention_projection, cross_layer_kv_sharing, positional_encoding, score 13.00
-- qwen3_5: donors qwen3_next(38), gpt_oss(22), innovations modality, rope_partition_detail, rope_parameterization, score 13.00
-- dbrx: donors minicpm(32), phixtral(28), innovations none, score 10.00
-- qwen3_moe: donors llama4(31), mixtral(29), innovations none, score 10.00
-- glm4_moe: donors dots1(60), innovations positional_encoding, output_head_connection, score 10.00
+- qwen3_next: donors bailing_moe_linear(49), qwen2_moe(7), nemotron_h(4), innovations state_update_rule, attention_family, gated_delta_net, score 15.00
+- hunyuan: donors dots1(33), qwen2_moe(27), innovations attention_projection, cross_layer_kv_sharing, positional_encoding, score 13.00
+- qwen3_5: donors qwen3_next(36), gpt_oss(24), innovations modality, rope_partition_detail, rope_parameterization, score 13.00
+- dbrx: donors phixtral(33), deepseek(27), innovations none, score 10.00
+- qwen3_moe: donors granitemoe(31), llama4(29), innovations none, score 10.00
 
 ## Largest Improvements Vs Greedy
 
-- qwen: exact 12.60 vs greedy 14.20, improvement 1.60
 - granitemoehybrid: exact 12.90 vs greedy 14.00, improvement 1.10
 - qwen2: exact 9.00 vs greedy 9.90, improvement 0.90
+- llama4_text: exact 9.00 vs greedy 9.90, improvement 0.90
 - qwen3_moe: exact 10.00 vs greedy 10.90, improvement 0.90
 - apertus: exact 9.90 vs greedy 10.80, improvement 0.90
 - nemotron: exact 10.80 vs greedy 11.70, improvement 0.90
