@@ -8,30 +8,29 @@
 - Full-data borrowed traits: 4771
 - Full-data innovations: 311
 - Held-out evaluation: 5-fold trait-column CV
-- Held-out cost per applicable trait: 0.2045
-- Held-out donor coverage: 88.39%
-- Held-out fold spread: min 0.1477, median 0.2142, max 0.2368
+- Held-out cost per applicable trait: 0.2055
+- Held-out donor coverage: 88.27%
+- Held-out fold spread: min 0.1530, median 0.2177, max 0.2275
 - Stability evaluation: 20 feature-subsample refits at 80% of trait columns
-- Mean primary-donor agreement with full fit: 58.60%
-- Stability spread: min 46.24%, median 59.14%, max 70.97%
+- Mean primary-donor agreement with full fit: 56.51%
+- Stability spread: min 47.31%, median 55.91%, max 67.74%
 - Consensus parents chosen: 93 / 94 taxa
-- Consensus-parent support: mean 64.62%, median 65.00%
-- Majority-backed consensus edges (>=50% of replicates): 65
-- Strong consensus edges (>=75% of replicates): 35
-- Consensus differs from full primary donor: 19 taxa
-- Consensus parent absent from full donor solution: 10 taxa
+- Consensus-parent support: mean 64.35%, median 65.00%
+- Majority-backed consensus edges (>=50% of replicates): 64
+- Strong consensus edges (>=75% of replicates): 32
+- Consensus differs from full primary donor: 26 taxa
+- Consensus parent absent from full donor solution: 12 taxa
 
 ## Holdout Folds
 
-- Fold 1: held-out cost 0.1477, coverage 94.70%, traits 1018
-- Fold 2: held-out cost 0.2090, coverage 87.89%, traits 1098
-- Fold 3: held-out cost 0.2368, coverage 84.80%, traits 974
-- Fold 4: held-out cost 0.2163, coverage 87.08%, traits 944
-- Fold 5: held-out cost 0.2142, coverage 87.31%, traits 1048
+- Fold 1: held-out cost 0.1530, coverage 94.11%, traits 1018
+- Fold 2: held-out cost 0.2115, coverage 87.61%, traits 1098
+- Fold 3: held-out cost 0.2275, coverage 85.83%, traits 974
+- Fold 4: held-out cost 0.2192, coverage 86.76%, traits 944
+- Fold 5: held-out cost 0.2177, coverage 86.93%, traits 1048
 
 ## Strongest Consensus Parents
 
-- afm7: openelm with support 100.00% (full primary openelm)
 - bailing_moe_linear: bailing_moe with support 100.00% (full primary bailing_moe)
 - deepseek: mixtral with support 100.00% (full primary mixtral)
 - deepseek_v2: deepseek with support 100.00% (full primary deepseek)
@@ -40,21 +39,22 @@
 - glm4_moe_lite: deepseek_v3 with support 100.00% (full primary deepseek_v3)
 - gpt_bigcode: gpt2 with support 100.00% (full primary gpt2)
 - gpt_neox: gpt2 with support 100.00% (full primary gpt2)
-- granitemoe: mixtral with support 100.00% (full primary mixtral)
 - mamba2: mamba with support 100.00% (full primary mamba)
 - minicpm3: deepseek_v2 with support 100.00% (full primary deepseek_v2)
+- ministral3: llama with support 100.00% (full primary llama)
+- olmo2: olmoe with support 100.00% (full primary olmoe)
 
 ## Most Ambiguous Consensus Parents
 
-- glm: bitnet with support 20.00%, votes bitnet:4;mamba:3;phi3:3;phi3small:3;jamba:2;llama:2;gemma:1;minicpm:1;olmo:1
-- nemotron-nas: mixtral with support 20.00%, votes deepseek:4;exaone:4;mixtral:4;granite:1;granitemoe:1;llama:1;mamba2:1;minicpm:1;phi:1;phi3:1;qwen:1
-- lille-130m: olmo with support 25.00%, votes olmo:5;nemotron-nas:3;plamo2:3;afm7:2;glm:2;helium:2;openelm:1;phi3:1;phimoe:1
-- minimax: dots1 with support 25.00%, votes Klear:5;dots1:5;bailing_moe_linear:2;glm4_moe:2;mixtral:2;bailing_moe:1;dbrx:1;granitemoe:1;openelm:1
-- seed_oss: qwen2 with support 25.00%, votes minicpm:5;qwen2:5;granite:2;bitnet:1;ernie4_5:1;exaone:1;granitemoe:1;hunyuan_v1_dense:1;internlm3:1;olmo2:1;qwen3:1
-- apertus: glm4_moe with support 30.00%, votes glm4_moe:6;smollm3:3;nemotron:2;olmo2:2;openelm:2;olmo:1;olmoe:1;phi:1;qwen3:1;qwen3_moe:1
-- gemma3_text: cohere2 with support 30.00%, votes cohere2:6;olmo2:6;bailing_moe:3;gemma2:3;olmoe:1;recurrent_gemma:1
-- minicpm: deepseek with support 30.00%, votes deepseek:6;llama:3;mixtral:3;nemotron:3;stablelm:3;internlm2:2
-- afmoe: dots1 with support 35.00%, votes dots1:7;bailing_moe_linear:4;gpt_oss:4;exaone4:1;glm4_moe:1;mixtral:1;phimoe:1;qwen3_next:1
-- cohere: phi with support 35.00%, votes phi:7;llama:5;gemma:3;stablelm:3;deepseek:1;gpt2:1
-- gemma: stablelm with support 35.00%, votes stablelm:7;gpt2:6;gpt_bigcode:3;llama:2;plamo:2
-- hunyuan_v1_dense: qwen3 with support 35.00%, votes internlm3:7;qwen3:7;hunyuan:3;dots1:1;olmo2:1;olmoe:1
+- glm: llama with support 20.00%, votes llama:4;bitnet:3;mamba:2;openelm:2;phi3:2;phi3small:2;gemma:1;minicpm:1;olmo:1;phi:1;starcoder2:1
+- lille-130m: nemotron-nas with support 20.00%, votes nemotron-nas:4;afm7:3;glm:3;olmo:3;exaone:1;falcon_h1:1;helium:1;llama4_text:1;phimoe:1;plamo:1;plamo2:1
+- gemma: llama with support 25.00%, votes gpt_bigcode:5;llama:5;stablelm:4;gpt2:2;deepseek:1;gpt_neox:1;minicpm:1;plamo:1
+- minicpm: llama with support 25.00%, votes deepseek:5;llama:5;mixtral:4;stablelm:3;internlm2:2;qwen:1
+- seed_oss: minicpm with support 25.00%, votes minicpm:5;qwen2:4;granite:3;bitnet:1;deepseek:1;granitemoe:1;helium:1;internlm3:1;llama:1;olmo2:1;qwen3:1
+- apertus: glm4_moe with support 30.00%, votes glm4_moe:6;openelm:4;smollm3:3;bailing_moe:1;dots1:1;nemotron:1;olmo2:1;olmoe:1;qwen3:1;qwen3_moe:1
+- exaone: llama with support 30.00%, votes bitnet:6;llama:6;internlm2:2;qwen:2;glm:1;minicpm:1;mixtral:1;qwen2:1
+- hunyuan: dots1 with support 30.00%, votes dots1:6;qwen2_moe:5;bailing_moe:3;llama4:1;mixtral:1;olmoe:1;openelm:1;phixtral:1;qwen3_moe:1
+- internlm2: nemotron with support 30.00%, votes nemotron:6;plamo:5;mixtral:4;llama:2;mamba:2;qwen:1
+- telechat3: helium with support 30.00%, votes helium:6;internlm3:5;glm:2;hunyuan_v1_dense:2;mixtral:2;ernie4_5:1;minicpm:1;seed_oss:1
+- cohere: phi with support 35.00%, votes phi:7;llama:4;stablelm:3;gemma:2;gpt2:2;deepseek:1;plamo:1
+- minimax: dots1 with support 35.00%, votes dots1:7;phixtral:3;Klear:2;dbrx:2;glm4_moe:2;olmoe:2;bailing_moe:1;mixtral:1
